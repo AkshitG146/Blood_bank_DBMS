@@ -10,9 +10,16 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('1. Donors available for a particular patient');
         DBMS_OUTPUT.PUT_LINE('2. Blood Bank Available for a particular patient');
         DBMS_OUTPUT.PUT_LINE('3. Blood Bank Available for a particular patient’s place');
+        DBMS_OUTPUT.PUT_LINE('4. Option 4');
+        DBMS_OUTPUT.PUT_LINE('5. Option 5');
+        DBMS_OUTPUT.PUT_LINE('6. Option 6');
+        DBMS_OUTPUT.PUT_LINE('7. Option 7');
+        DBMS_OUTPUT.PUT_LINE('8. Option 8');
+        DBMS_OUTPUT.PUT_LINE('9. Option 9');
+        DBMS_OUTPUT.PUT_LINE('10. Exit');
         DBMS_OUTPUT.PUT('Enter your choice: ');
         -- Accept user input
-        ACCEPT choice NUMBER FORMAT '9' DEFAULT 3;
+        ACCEPT choice NUMBER FORMAT '9' DEFAULT 10;
         
         -- Perform actions based on user choice
         CASE choice
@@ -97,8 +104,32 @@ BEGIN
                                     /
 
                 
-            ELSE
-                DBMS_OUTPUT.PUT_LINE('Invalid choice! Please select again.');
+            WHEN 4 THEN
+                    -- Action for Option 4
+                    DBMS_OUTPUT.PUT_LINE('You selected Option 4');
+                WHEN 5 THEN
+                    -- Action for Option 5
+                    DBMS_OUTPUT.PUT_LINE('You selected Option 5');
+                WHEN 6 THEN
+                    -- Action for Option 6
+                    DBMS_OUTPUT.PUT_LINE('You selected Option 6');
+                WHEN 7 THEN
+                    -- Action for Option 7
+                    DBMS_OUTPUT.PUT_LINE('You selected Option 7');
+                WHEN 8 THEN
+                    -- Action for Option 8
+                    DBMS_OUTPUT.PUT_LINE('You selected Option 8');
+                WHEN 9 THEN
+                    -- Action for Option 9
+                    DBMS_OUTPUT.PUT_LINE('You selected Option 9');
+                WHEN 10 THEN
+                    -- Exit the program
+                    DBMS_OUTPUT.PUT_LINE('Exiting...');
+                    EXIT;
+                ELSE
+                    DBMS_OUTPUT.PUT_LINE('Invalid choice! Please select again.');
         END CASE;
     END LOOP;
+END;
+/
 END;
