@@ -41,7 +41,7 @@ create table Blood(
     b_code integer Primary key,
     b_group varchar2(5) not null,
     packets integer,
-    donar_id integer references Donar(donar_id)
+    donar_id integer references Donar(donar_id),
     blood_bank_id integer references BloodBank(blood_bank_id)
 );
 
