@@ -42,6 +42,7 @@ create table Blood(
     b_group varchar2(5) not null,
     packets integer,
     donar_id integer references Donar(donar_id)
+    blood_bank_id integer references BloodBank(blood_bank_id)
 );
 
 create table Donar_contactno(
@@ -149,3 +150,16 @@ insert into Donate (donate_id,donar_id,date_of_donation,blood_bank_id)
             values(10009,109,TO_DATE('25/02/2018', 'DD/MM/YYYY'),2);
 insert into Donate (donate_id,donar_id,date_of_donation,blood_bank_id)
             values(10010,110,TO_DATE('24/02/2018', 'DD/MM/YYYY'),1);
+
+
+
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (1, 'A+', 1, 101, 1);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (2, 'A+', 1, 102, 1);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (3, 'B+', 1, 103, 2);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (4, 'A+', 1, 104, 2);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (5, 'B+', 1, 105, 1);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (6, 'A+', 1, 106, 3);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (7, 'A+', 1, 107, 1);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (8, 'B+', 1, 108, 2);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (9, 'A+', 1, 109, 3);
+INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (10, 'B+', 1, 110, 1);
