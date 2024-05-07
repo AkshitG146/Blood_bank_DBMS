@@ -55,7 +55,7 @@ create table Bloodbank_no(
     blood_bank_id integer references Bloodbank(blood_bank_id),
     telephone_no integer,
     reception_no integer
-    );
+);
 
 
 
@@ -163,3 +163,26 @@ INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (7,
 INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (8, 'B+', 1, 108, 2);
 INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (9, 'A+', 1, 109, 3);
 INSERT INTO Blood (b_code, b_group, packets, donar_id, blood_bank_id) VALUES (10, 'B+', 1, 110, 1);
+
+
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (101, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (102, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (103, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (104, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (105, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (106, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (107, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (108, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (109, 0134, NULL);
+INSERT INTO Donar_contactno (donar_id, phone_no, telephone_no) VALUES (110, 0134, NULL);
+
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (1, 911, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (2, 912, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (3, 913, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (4, 914, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (5, 915, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (6, 916, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (7, 917, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (8, 918, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (9, 919, NULL);
+INSERT INTO Bloodbank_no (blood_bank_id, telephone_no, reception_no) VALUES (10, 920, NULL);
