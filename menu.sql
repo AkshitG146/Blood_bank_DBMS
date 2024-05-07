@@ -226,42 +226,44 @@ group');
             WHEN 8 THEN
                     -- Action for Option 8
                     DBMS_OUTPUT.PUT_LINE('You selected Option 8');
-                                    CREATE OR REPLACE PROCEDURE GetDonorsByBloodGroupAndDate (
-                                        blood_group_param IN VARCHAR2,
-                                        donation_date_param IN DATE,
-                                        donors_cursor OUT SYS_REFCURSOR
-                                    ) AS
-                                    BEGIN
-                                        OPEN donors_cursor FOR
-                                        SELECT d.*
-                                        FROM Donar d
-                                        INNER JOIN Donate dt ON d.donar_id = dt.donar_id
-                                        WHERE d.blood_group = blood_group_param
-                                        AND dt.date_of_donation < donation_date_param;
-                                    END;
-                                    /
-                                    DECLARE
-                                        blood_group_param VARCHAR2(5) := 'A+'; -- Specify the desired blood group
-                                        donation_date_param DATE := TO_DATE('2022-01-01', 'YYYY-MM-DD'); -- Specify the particular date
-                                        donors_cursor SYS_REFCURSOR;
-                                        donor_id Donar.donar_id%TYPE;
-                                        donor_name Donar.donar_name%TYPE;
-                                        donor_blood_group Donar.blood_group%TYPE;
-                                    BEGIN
-                                        -- Call the procedure
-                                        GetDonorsByBloodGroupAndDate(blood_group_param => blood_group_param, donation_date_param => donation_date_param, donors_cursor => donors_cursor);
-                                        
-                                        -- Fetch and display the results
-                                        LOOP
-                                            FETCH donors_cursor INTO donor_id, donor_name, donor_blood_group;
-                                            EXIT WHEN donors_cursor%NOTFOUND;
-                                            DBMS_OUTPUT.PUT_LINE('Donor ID: ' || donor_id || ', Name: ' || donor_name || ', Blood Group: ' || donor_blood_group);
-                                        END LOOP;
-                                        
-                                        -- Close the cursor
-                                        CLOSE donors_cursor;
-                                    END;
-                                    /
+                                                CREATE OR REPLACE PROCEDURE GetDonorsByBloodGroupAndDate (
+                                                    blood_group_param IN VARCHAR2,
+                                                    donation_date_param IN DATE,
+                                                    donors_cursor OUT SYS_REFCURSOR
+                                                ) AS
+                                                BEGIN
+                                                    OPEN donors_cursor FOR
+                                                    SELECT d.donar_id, d.donar_name, d.blood_group
+                                                    FROM Donar d
+                                                    INNER JOIN Donate dt ON d.donar_id = dt.donar_id
+                                                    WHERE d.blood_group = blood_group_param
+                                                    AND dt.date_of_donation < donation_date_param;
+                                                END;
+                                                /
+
+
+                                                DECLARE
+                                                    blood_group_param VARCHAR2(5) := 'A+'; -- Specify the desired blood group
+                                                    donation_date_param DATE := TO_DATE('2022-01-01', 'YYYY-MM-DD'); -- Specify the particular date
+                                                    donors_cursor SYS_REFCURSOR;
+                                                    donor_id Donar.donar_id%TYPE;
+                                                    donor_name Donar.donar_name%TYPE;
+                                                    donor_blood_group Donar.blood_group%TYPE;
+                                                BEGIN
+                                                    -- Call the procedure
+                                                    GetDonorsByBloodGroupAndDate(blood_group_param => blood_group_param, donation_date_param => donation_date_param, donors_cursor => donors_cursor);
+                                                    
+                                                    -- Fetch and display the results
+                                                    LOOP
+                                                        FETCH donors_cursor INTO donor_id, donor_name, donor_blood_group;
+                                                        EXIT WHEN donors_cursor%NOTFOUND;
+                                                        DBMS_OUTPUT.PUT_LINE('Donor ID: ' || donor_id || ', Name: ' || donor_name || ', Blood Group: ' || donor_blood_group);
+                                                    END LOOP;
+                                                    
+                                                    -- Close the cursor
+                                                    CLOSE donors_cursor;
+                                                END;
+/
 
             WHEN 9 THEN
                     -- Action for Option 9
