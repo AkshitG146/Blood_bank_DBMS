@@ -1,10 +1,10 @@
 SET SERVEROUTPUT ON
 
 DECLARE
-    choice NUMBER;
+    choice NUMBER := 1;
 
 BEGIN
-    LOOP
+    -- LOOP
         -- Display the menu
         DBMS_OUTPUT.PUT_LINE('MENU');
         DBMS_OUTPUT.PUT_LINE('1. Donors available for a particular patient');
@@ -20,14 +20,14 @@ group');
         DBMS_OUTPUT.PUT_LINE('10. Exit');
         DBMS_OUTPUT.PUT('Enter your choice: ');
         -- Accept user input
-        ACCEPT choice NUMBER FORMAT '9' DEFAULT 10;
+        --! ACCEPT choice NUMBER FORMAT '9' DEFAULT 10;
         
         -- Perform actions based on user choice
         CASE choice
             WHEN 1 THEN
                 -- Action for Option 1
                 DBMS_OUTPUT.PUT_LINE('You selected Option 1');
-                                   SET SERVEROUTPUT ON
+                                --    SET SERVEROUTPUT ON
                                     
                                     DECLARE
                                         PROCEDURE donars_for_particular_patient (pid IN Patient.patient_id%type) IS 
@@ -51,7 +51,7 @@ group');
             WHEN 2 THEN
                 -- Action for Option 2
                 DBMS_OUTPUT.PUT_LINE('You selected Option 2');
-                            SET SERVEROUTPUT ON
+                            -- SET SERVEROUTPUT ON
 
                             DECLARE
                                 PROCEDURE banks_available_for_patient (pid IN Patient.patient_id%type) IS 
@@ -72,11 +72,9 @@ group');
                                 -- Call the procedure with a specific patient ID
                                 banks_available_for_patient(1001); -- Replace 1001 with the patient ID you want to query
                             END;
-                            /
             WHEN 3 THEN
-               
                 DBMS_OUTPUT.PUT_LINE('You selected Option 3');
-                                    SET SERVEROUTPUT ON
+                                    -- SET SERVEROUTPUT ON
 
                                     DECLARE
                                         PROCEDURE bank_in_patients_place (pid IN Patient.patient_id%type) IS
@@ -102,9 +100,6 @@ group');
                                         -- Call the procedure with a specific patient ID
                                         bank_in_patients_place(1001); -- Replace 1001 with the patient ID you want to query
                                     END;
-                                    /
-
-                
             WHEN 4 THEN
                     -- Action for Option 4
                     DBMS_OUTPUT.PUT_LINE('You selected Option 4');
@@ -136,8 +131,7 @@ group');
                                             END LOOP;
                                             CLOSE bags_quantity_cursor;
                                         END;
-                                        /
-                WHEN 5 THEN
+            WHEN 5 THEN
                     -- Action for Option 5
                     DBMS_OUTPUT.PUT_LINE('You selected Option 5');
                                         CREATE OR REPLACE PROCEDURE GetBloodGroupQuantity (
@@ -164,8 +158,7 @@ group');
                                             -- Display the result
                                             DBMS_OUTPUT.PUT_LINE('Quantity of Blood Group ' || blood_group_param || ' in Blood Bank ' || blood_bank_id_param || ': ' || group_quantity);
                                         END;
-                                        /
-                WHEN 6 THEN
+            WHEN 6 THEN
                     -- Action for Option 6
                     DBMS_OUTPUT.PUT_LINE('You selected Option 6');
                                                     CREATE OR REPLACE PROCEDURE GetBloodBanksWithQuantity (
@@ -201,8 +194,7 @@ group');
                                                         -- Close the cursor
                                                         CLOSE blood_banks_cursor;
                                                     END;
-                                                    /
-                WHEN 7 THEN
+            WHEN 7 THEN
                     -- Action for Option 7
                     DBMS_OUTPUT.PUT_LINE('You selected Option 7');
                                         CREATE OR REPLACE PROCEDURE GetBloodGroupQuantityInBank (
@@ -231,7 +223,7 @@ group');
                                         /
 
                     
-                WHEN 8 THEN
+            WHEN 8 THEN
                     -- Action for Option 8
                     DBMS_OUTPUT.PUT_LINE('You selected Option 8');
                                     CREATE OR REPLACE PROCEDURE GetDonorsByBloodGroupAndDate (
@@ -271,7 +263,7 @@ group');
                                     END;
                                     /
 
-                WHEN 9 THEN
+            WHEN 9 THEN
                     -- Action for Option 9
                     DBMS_OUTPUT.PUT_LINE('You selected Option 9');
                                         CREATE OR REPLACE PROCEDURE GetDonorsWithBloodBanks (
@@ -313,14 +305,14 @@ group');
                                         END;
                                         /
 
-                WHEN 10 THEN
+            WHEN 10 THEN
                     -- Exit the program
                     DBMS_OUTPUT.PUT_LINE('Exiting...');
                     EXIT;
                 ELSE
                     DBMS_OUTPUT.PUT_LINE('Invalid choice! Please select again.');
         END CASE;
-    END LOOP;
+    -- END LOOP;
 END;
 /
 END;
